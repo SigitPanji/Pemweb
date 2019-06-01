@@ -1,0 +1,805 @@
+<<<<INDEX>>>>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BATIQA HOTEL</title>
+  </head>
+  
+  <style>
+  
+.navigasi ul {
+    
+    overflow: hidden;
+}
+
+.navigasi li {
+    float: left;
+	font-family: 'arial';
+}	
+
+.body{
+	font-family: 'arial';
+	color: #000000;
+	text-align: center;
+}
+.wrapper {
+  padding: 100px 0;
+  font-family: 'Amatic SC', cursive;
+  color: #0000FF;
+
+}
+  </style>
+  
+  <body background="a.jpg">
+    <div class="navigasi">
+      <ul>
+        <li> <a href="index.php"> <input type="image" src="b.jpg" width="100" height="100"/> </a></li>
+        <li style="float:right"><button> <a href="login.php">  [LOGIN]</a></button> </li>
+		<li style="float:right"><button> <a href="register.php">[REGISTER]</a> </button></li>
+      </ul>
+    </div>
+	<center>
+	<div class="wrapper">
+  <h1>BATIQA HOTEL LAMPUNG</h1>
+  </div>
+  </center>
+  </body>
+</html>
+
+
+
+
+
+<<<<LOGIN>>>>
+
+<html>
+    <head>
+        <title>LOGIN</title>
+		
+    </head>
+    <style>
+  
+.navigasi ul {
+    
+    overflow: hidden;
+}
+
+.navigasi li {
+    float: left;
+	font-family: 'arial';
+}	
+
+.body{
+	font-family: 'arial';
+	color: #000000;
+	text-align: center;
+}
+.wrapper {
+  padding: 100px 0;
+  font-family: 'Amatic SC', cursive;
+
+}
+  </style>
+  
+  <body background="a.jpg">
+    <div class="navigasi">
+      <ul>
+        <li> <a href="index.php"> <input type="image" src="b.jpg" width="100" height="100"/> </a></li>
+		<li style="float:right"><button> <a href="register.php">[REGISTER]</a></button> </li>
+      </ul>
+    </div>
+	<center>
+        <h2>LOGIN PAGE</h2>
+		<div class="wrapper">
+        <form action="welcome.php" method="post">
+		<table>
+           <tr> 
+                <td>username</td>
+                <td><input type="text" name="username" required></td>
+            </tr>
+            <tr> 
+                <td>password</td>
+                <td><input type="password" name="password" required></td>
+            </tr>
+			<tr>
+           <td> <button  type="submit" value="LOGIN">login </button></td>
+		  
+		   </tr>
+		   </table>
+		   </div>
+		   </center>
+        </form>
+    </body>
+	
+</html>
+
+
+
+
+
+<<<<REGISTER>>>>
+
+<html>
+<head>
+    <title>REGISTER</title>
+</head>
+
+<body>
+    <style>
+  
+.navigasi ul {
+    
+    overflow: hidden;
+}
+
+.navigasi li {
+    float: left;
+	font-family: 'arial';
+}	
+
+.body{
+	font-family: 'arial';
+	color: #000000;
+	text-align: center;
+}
+.wrapper {
+  padding: 100px 0;
+  font-family: 'Amatic SC', cursive;
+
+}
+  </style>
+  
+  <body background="a.jpg">
+    <div class="navigasi">
+      <ul>
+        <li> <a href="index.php"> <input type="image" src="b.jpg" width="100" height="100"/> </a></li>
+      </ul>
+    </div>
+
+    <form action="register.php" method="post" name="form1">
+	<center>
+	<h2>REGISTER PAGE</h2>
+	<div class="wrapper">
+        <table width="25%" border="0">
+			<tr> 
+                <td>Masukkan Username</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+			
+            <tr> 
+                <td>Masukkan Password</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+        
+            <tr> 
+                <td></td>
+                <td><input type="submit" name="Submit" value="submit"></td>
+            </tr>
+        </table>
+		</div>
+		</center?
+    </form>
+
+    <?php
+
+    // Check If form submitted, insert form data into users table.
+    if(isset($_POST['Submit'])) {
+		$username = $_POST['username'];
+        $password = $_POST['password'];
+
+        // include database connection file
+        include_once("koneksi.php");
+
+        // Insert user data into table
+        $result = mysqli_query($koneksi, "INSERT INTO user(username,password) VALUES('$username','$password')");
+
+        // Show message when user added
+        echo "Anda berhasil regis. <a href='login.php'>silahkan login </a>";
+    }
+    ?>
+</body>
+</html>
+
+
+
+
+
+<<<<WELCOME>>>>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BATIQA HOTEL</title>
+  </head>
+  
+  <style>
+  
+.navigasi ul {
+    
+    overflow: hidden;
+}
+
+.navigasi li {
+    float: left;
+	font-family: 'arial';
+}	
+
+.body{
+	font-family: 'arial';
+	color: #000000;
+	text-align: center;
+}
+  </style>
+  
+  <body background="a.jpg">
+    <div class="navigasi">
+      <ul>
+        <li> <a href="welcome.php"> <input type="image" src="b.jpg" width="100" height="100"/> </a></li>
+		<li style="float:right"> <button><a href="login.php">[LOGOUT]</a> </button></li>
+		<li style="float:right"> <button><a href="pilih.php">[PILIH]</a> </button></li>
+      </ul>
+    </div>
+	
+
+	<center>
+	<div class="body">
+	<p> <h1>WELCOME TO BATIQA HOTEL</h1> </p>
+	<p> . </p>
+	<p> <h2>Batiqa Hotel adalah hotel bintang 4 yang mengusung konsep modern minimalis .
+	 Berada dijalan Jendral Sudirman No.140, hotel mewah ini menawarkan beberapa pilihan 
+	 kamar yang dilengkapi AC,TV,serta Akses Wi-Fi .
+	 Tedapat restoran khas Indonesia,Fitnes Center, serta layanan antar jemput yang bisa tamu manfaatkan. Plata Lotus dan Supermarket Gelael adalah 
+	 atraksi terdekat dari Batiqa Hotel ini</h2> </p>
+	 </div>
+	</center>
+  </body>
+</html>
+
+
+
+
+
+<<<<PILIH>>>>
+
+<html>
+    <head>
+        <title>PILIH KAMAR</title>
+    </head>
+    <style>
+  
+.navigasi ul {
+    
+    overflow: hidden;
+}
+
+.navigasi li {
+    float: left;
+	font-family: 'arial';
+}	
+
+.body{
+	font-family: 'arial';
+	color: #000000;
+	text-align: center;
+}
+.wrapper {
+  padding: 100px 0;
+  font-family: 'Amatic SC', cursive;
+
+}
+  </style>
+  
+  <body background="a.jpg">
+    <div class="navigasi">
+      <ul>
+        <li> <a href="welcome.php"> <input type="image" src="b.jpg" width="100" height="100"/> </a></li>
+		<li style="float:right"> <button><a href="login.php">[LOGOUT]</a> </button></li>
+      </ul>
+    </div>
+	<div class="wrapper">
+	<center>
+	<table>
+	
+	<tr>
+	<td><a href="standard.php"><h3>STANDARD</h3></a></td>
+	</tr>
+	
+	<tr>
+	<td><a href="class.php"><h3>CLASS</h3></a></td>
+	</tr>
+	
+	<tr>
+	<td><a href="vip.php"><h3>VIP</h3></a></td>
+	</tr>
+	
+	</table>
+	</center>
+	</div>
+	</body>
+</html>
+
+
+
+
+
+<<<<STANDARD>>>>
+
+<html>
+    <head>
+        <title>STANDARD</title>
+    </head>
+    <style>
+  
+.navigasi ul {
+    
+    overflow: hidden;
+}
+
+.navigasi li {
+    float: left;
+	font-family: 'arial';
+}	
+
+.body{
+	font-family: 'arial';
+	color: #000000;
+	text-align: center;
+}
+  </style>
+  
+  <body background="a.jpg">
+    <div class="navigasi">
+      <ul>
+        <li> <a href="welcome.php"> <input type="image" src="b.jpg" width="100" height="100"/> </a></li>
+		<li style="float:right"> <button><a href="login.php">[LOGOUT]</a> </button></li>
+		<li style="float:right"> <button><a href="pilih.php">[BACK]</a> </button></li>
+      </ul>
+    </div>
+	
+
+	<center>
+	<h1>KAMAR STANDARD<h1>
+	
+	<table>
+	
+	<tr>
+	<td>- 2 Tamu</td>
+	</tr>
+	
+	<tr>
+	<td>- 2 Single Bed </td>
+	</tr>
+	
+	<tr>
+	<td>- Free WI-FI </td>
+	</tr>
+
+	</table>
+	<p> Gambaran Kamar Standard </p>
+ <img src="standard.jpg" width="500px" height="250px" style="border:6px groove #0000FF;" > 
+ <a href="pesan.php"><h5>pesan kamar</h5></a>
+	</center>
+	</body>
+</html>
+
+
+
+
+
+<<<<CLASS>>>>
+
+<html>
+    <head>
+        <title>CLASS</title>
+    </head>
+    <style>
+  
+.navigasi ul {
+    
+    overflow: hidden;
+}
+
+.navigasi li {
+    float: left;
+	font-family: 'arial';
+}	
+
+.body{
+	font-family: 'arial';
+	color: #000000;
+	text-align: center;
+}
+  </style>
+  
+  <body background="a.jpg">
+    <div class="navigasi">
+      <ul>
+        <li> <a href="welcome.php"> <input type="image" src="b.jpg" width="100" height="100"/> </a></li>
+		<li style="float:right"> <button><a href="login.php">[LOGOUT]</a></button> </li>
+		<li style="float:right"><button> <a href="pilih.php">[BACK]</a> </button></li>
+      </ul>
+    </div>
+	<center>
+	<h1>KAMAR CLASS<h1>
+	
+	<table>
+	
+	<tr>
+	<td>- 2 Tamu</td>
+	</tr>
+	
+	<tr>
+	<td>- 1 Double Bed </td>
+	</tr>
+	
+	<tr>
+	<td>- Free WI-FI </td>
+	</tr>
+	
+	<tr>
+	<td>- Free Breakfast </td>
+	</tr>
+	
+	</table>
+	<p> Gambaran Kamar Class </p>
+ <img src="class.jpg" width="500px" height="250px" style="border:6px groove #0000FF;" > 
+ <a href="pesan.php"><h5>pesan kamar</h5></a>
+	</center>
+	</div>
+	</div>
+	</body>
+</html>
+
+
+
+
+
+<<<<VIP>>>>
+
+<html>
+    <head>
+        <title>VIP</title>
+    </head>
+    <style>
+  
+.navigasi ul {
+    
+    overflow: hidden;
+}
+
+.navigasi li {
+    float: left;
+	font-family: 'arial';
+}	
+
+.body{
+	font-family: 'arial';
+	color: #000000;
+	text-align: center;
+}
+  </style>
+  
+  <body background="a.jpg">
+    <div class="navigasi">
+      <ul>
+        <li> <a href="welcome.php"> <input type="image" src="b.jpg" width="100" height="100"/> </a></li>
+		<li style="float:right"> <button><a href="login.php">[LOGOUT]</a> </button></li>
+		<li style="float:right"><button> <a href="pilih.php">[BACK]</a></button> </li>
+      </ul>
+    </div>
+	<center>
+	<h1>KAMAR VIP<h1>
+	
+	<table>
+	
+	<tr>
+	<td>- 2 Tamu</td>
+	</tr>
+	
+	<tr>
+	<td>- 1 King Bed </td>
+	</tr>
+	
+	<tr>
+	<td>- Free WI-FI </td>
+	</tr>
+	
+	<tr>
+	<td>- Free Breakfast </td>
+	</tr>
+	
+	</table>
+	<p> Gambaran Kamar VIP </p>
+ <img src="vip.jpg" width="500px" height="250px" style="border:6px groove #0000FF;" > 
+ <a href="pesan.php"><h5>pesan kamar</h5></a>
+	</center>
+	
+	</body>
+</html>
+
+
+
+
+
+<<<<PESAN>>>>
+
+<html>
+<head>
+    <title>Masukkan Data Pemesanan</title>
+</head>
+
+<style>
+  
+.navigasi ul {
+    
+    overflow: hidden;
+}
+
+.navigasi li {
+    float: left;
+	font-family: 'arial';
+}	
+
+.body{
+	font-family: 'arial';
+	color: #000000;
+	text-align: center;
+}
+.wrapper {
+  padding: 100px 0;
+  font-family: 'Amatic SC', cursive;
+
+}
+  </style>
+  
+  <body background="a.jpg">
+    <div class="navigasi">
+      <ul>
+        <li> <a href="welcome.php"> <input type="image" src="b.jpg" width="100" height="100"/> </a></li>
+		<li style="float:right"> <button> <a href="login.php">[LOGOUT]</a> </button></li>
+		<li style="float:right"> <button> <a href="pilih.php">[BACK]</a> </button></li>
+      </ul>
+    </div>
+    
+<div class="wrapper">
+<center>
+    <form action="bayar.php" method="post" name="form1">
+        <table width="25%" border="0">
+			<tr> 
+                <td>NAMA</td>
+                <td><input type="text" name="nama"></td>
+            </tr>
+			
+            <tr> 
+                <td>EMAIL</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+			
+            <tr> 
+                <td>NO.HP</td>
+                <td><input type="text" name="no.hp"></td>
+            </tr>
+            <tr> 
+			
+			<tr> 
+                <td>JENIS KAMAR</td>
+                <td><input type="text" name="jenis_kamar"></td>
+            </tr>
+            <tr> 
+			
+			<tr> 
+                <td>WAKTU</td>
+                <td><input type="text" name="waktu"></td>
+            </tr>
+            <tr> 
+			
+                <td></td>
+                <td><input type="submit" name="Submit" value="submit"></td>
+            </tr>
+        </table>
+		</center>
+    </form>
+	</div>
+
+    <?php
+
+    // Check If form submitted, insert form data into users table.
+   /* if(isset($_POST['Submit'])) {
+		$nama = $_POST['nama'];
+        $email = $_POST['email'];
+        $no_hp = $_POST['no_hp'];
+		$jenis_kamar = $_POST['jenis_kamar'];
+		$waktu = $_POST['waktu'];
+
+        // include database connection file
+        include_once("koneksi.php");
+
+        // Insert user data into table
+        $result = mysqli_query($koneksi, "INSERT INTO pesan(nama,email,no_hp,jenis_kamar,waktu) VALUES('$nama','$email','$no_hp','jenis_kamar','waktu')");
+
+        // Show message when user added
+        echo "<a href='bayar.php'>PEMBAYARAN</a>";
+    }*/
+    ?>
+</body>
+</html>
+
+
+
+
+
+<<<<BAYAR>>>>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BATIQA HOTEL</title>
+  </head>
+  
+  <style>
+  
+.navigasi ul {
+    
+    overflow: hidden;
+}
+
+.navigasi li {
+    float: left;
+	font-family: 'arial';
+}	
+
+.body{
+	font-family: 'arial';
+	color: #000000;
+	text-align: center;
+}
+.wrapper {
+  padding: 100px 0;
+  font-family: 'Amatic SC', cursive;
+  color: #0000FF;
+
+}
+  </style>
+  
+  <body background="a.jpg">
+    <div class="navigasi">
+      <ul>
+        <li> <a href="welcome.php"> <input type="image" src="b.jpg" width="100" height="100"/> </a></li>
+        <li style="float:right"><button> <a href="pesan.php">  [BACK]</a></button> </li>
+		<li style="float:right"><button> <a href="login.php">[LOGOUT]</a> </button></li>
+      </ul>
+    </div>
+	<center>
+	<div class="wrapper">
+  <a href="rekening.php"> <input type="image" src="bca.jpg" width="200" height="100"/> </a></li>
+  <a href="rekening.php"> <input type="image" src="mandiri.jpg" width="200" height="100"/> </a></li>
+  </div>
+  </center>
+  </body>
+</html>
+
+
+
+
+
+<<<<REKENING>>>>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BATIQA HOTEL</title>
+  </head>
+  
+  <style>
+  
+.navigasi ul {
+    
+    overflow: hidden;
+}
+
+.navigasi li {
+    float: left;
+	font-family: 'arial';
+}	
+
+.body{
+	font-family: 'arial';
+	color: #000000;
+	text-align: center;
+}
+.wrapper {
+  padding: 100px 0;
+  font-family: 'Amatic SC', cursive;
+  color: #0000FF;
+
+}
+  </style>
+  
+  <body background="a.jpg">
+    <div class="navigasi">
+      <ul>
+        <li> <a href="welcome.php"> <input type="image" src="b.jpg" width="100" height="100"/> </a></li>
+        <li style="float:right"><button> <a href="bayar.php">  [BACK]</a></button> </li>
+		<li style="float:right"><button> <a href="login.php">[LOGOUT]</a> </button></li>
+      </ul>
+    </div>
+	<center>
+	<div class="wrapper">
+    <form action="booking.php" method="post" name="form1">
+        <table width="25%" border="0">
+			<tr> 
+                <td>NO.REKENING</td>
+                <td><input type="text" name="no.rekening"></td>
+            </tr>
+			
+            <tr> 
+                <td>JUMLAH</td>
+                <td><input type="text" name="jumlah"></td>
+            </tr>
+			
+			<tr> 
+			
+                <td></td>
+                <td><input type="submit" name="Submit" value="submit"></td>
+            </tr>
+  </div>
+  </center>
+  </body>
+</html>
+
+
+
+
+
+<<<<BOKING>>>>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BATIQA HOTEL</title>
+  </head>
+  
+  <style>
+  
+.navigasi ul {
+    
+    overflow: hidden;
+}
+
+.navigasi li {
+    float: left;
+	font-family: 'arial';
+}	
+
+.body{
+	font-family: 'arial';
+	color: #000000;
+	text-align: center;
+}
+.wrapper {
+  padding: 100px 0;
+  font-family: 'Amatic SC', cursive;
+  color: #000000;
+
+}
+  </style>
+  
+  <body background="a.jpg">
+    <div class="navigasi">
+      <ul>
+        <li> <a href="index.php"> <input type="image" src="b.jpg" width="100" height="100"/> </a></li>
+        <li style="float:right"><button> <a href="login.php">  [LOGOUT]</a></button> </li>
+		<li style="float:right"><button> <a href="pilih.php">[BACK]</a> </button></li>
+      </ul>
+    </div>
+	<center>
+	<div class="wrapper">
+  <p>TERIMA KASIH SUDAH MEMESAN.INI KODE BOOKING ANDA </p>
+  <img src="bb.jpg" width="300px" height="300px";" >
+  </div>
+  </center>
+  </body>
+</html>
+
+
